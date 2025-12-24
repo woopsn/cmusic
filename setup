@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Install dependencies and configure the build environment
+
+# macOS specific configuration
+if [[ "$(uname)" == "Darwin" ]]; then
+    echo "Configuring for macOS..."
+
+    # Install dependencies using Homebrew
+    brew install lapack
+else
+    echo "Configuring for Debian..."
+
+    # Install dependencies using apt-get
+    sudo apt-get update
+    sudo apt-get install -y liblapack-dev
+fi
